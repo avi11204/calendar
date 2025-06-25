@@ -1,27 +1,35 @@
-.calendar-container {
-  width: 100%;
-  max-width: 480px;
-  margin: 4rem auto;
+/* Layout */
+.calendar-wrapper {
+  padding: 2rem;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.calendar {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   padding: 1.5rem;
-  background-color: white;
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-  font-family: "Segoe UI", sans-serif;
+  width: 100%;
+  max-width: 500px;
   box-sizing: border-box;
 }
 
+/* Header */
 .calendar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .calendar-header h2 {
-  font-size: 1.5rem;
+  margin: 0;
+  font-size: 1.4rem;
   font-weight: 600;
-  flex: 1;
-  text-align: center;
   color: #333;
 }
 
@@ -30,74 +38,67 @@
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #333;
-  width: 2rem;
-  height: 2rem;
-  transition: color 0.2s ease;
+  color: #555;
+  padding: 0.25rem 0.75rem;
 }
 
 .calendar-header button:hover {
   color: #007bff;
 }
 
-.calendar-weekdays,
-.calendar-days {
+/* Grid */
+.calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  text-align: center;
 }
 
+.calendar-cell {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  margin: 2px;
+  border-radius: 6px;
+}
+
+/* Weekdays */
 .weekday {
   font-weight: 600;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
   color: #666;
+  background: #f0f0f0;
+  padding: 0.4rem 0;
 }
 
-.calendar-day {
-  padding: 0.9rem 0;
-  margin: 2px;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  transition: background-color 0.2s ease;
+/* Days */
+.day {
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.calendar-day:hover {
-  background-color: #f0f4ff;
-}
-
-.current {
+.current-month {
+  background-color: #fafafa;
   color: #222;
-  background-color: #f9f9f9;
 }
 
-.other {
-  color: #bbb;
+.other-month {
+  color: #aaa;
+  background-color: #f5f5f5;
 }
 
 .today {
   background-color: #007bff;
-  color: white;
+  color: #fff;
   font-weight: bold;
 }
 
+/* Responsive */
 @media (max-width: 500px) {
-  .calendar-container {
-    padding: 1rem;
-    margin: 2rem 1rem;
-  }
-
   .calendar-header h2 {
     font-size: 1.1rem;
   }
 
-  .calendar-day {
-    padding: 0.6rem 0;
+  .calendar-cell {
     font-size: 0.8rem;
-  }
-
-  .weekday {
-    font-size: 0.75rem;
   }
 }
