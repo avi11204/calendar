@@ -1,9 +1,9 @@
 :root {
   --bg: #f0f2f5;
   --text: #222;
-  --cell-bg: #fcfcfc;
+  --cell-bg: #ffffff;
   --today-bg: #007bff;
-  --popup-bg: white;
+  --popup-bg: #ffffff;
   --popup-text: #222;
   --dot: #007bff;
 }
@@ -21,11 +21,14 @@
 body {
   background-color: var(--bg);
   color: var(--text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* Main wrapper */
+/* Main Wrapper */
 .calendar-wrapper {
-  padding: 2rem;
+  padding: 4rem 2rem;
   background-color: var(--bg);
   min-height: 100vh;
   display: flex;
@@ -35,14 +38,14 @@ body {
   position: relative;
 }
 
-/* Main calendar container */
+/* Calendar Container */
 .calendar {
   background-color: var(--cell-bg);
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;
   box-sizing: border-box;
 }
 
@@ -51,23 +54,23 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .calendar-header h2 {
   margin: 0;
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: 700;
   color: var(--text);
 }
 
 .calendar-header button {
   background: none;
   border: none;
-  font-size: 1.75rem;
+  font-size: 2rem;
   cursor: pointer;
   color: var(--text);
-  padding: 0.25rem 0.75rem;
+  padding: 0.4rem 1rem;
   transition: color 0.2s;
 }
 
@@ -79,26 +82,26 @@ body {
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
+  gap: 12px;
 }
 
 .weekday {
   font-weight: 600;
   color: #666;
-  font-size: 1rem;
-  padding: 0.5rem 0;
+  font-size: 1.1rem;
   text-align: center;
+  padding: 0.75rem 0;
   background-color: #f3f4f6;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
-/* Day cells */
+/* Calendar Day Cells */
 .calendar-cell {
   background-color: var(--cell-bg);
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 1rem;
-  padding: 0.5rem;
-  min-height: 100px;
+  padding: 0.75rem 0.5rem;
+  min-height: 110px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -106,8 +109,8 @@ body {
   text-align: center;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  position: relative;
   color: var(--text);
+  position: relative;
 }
 
 .calendar-cell:hover {
@@ -116,7 +119,7 @@ body {
 
 .today {
   background-color: var(--today-bg);
-  color: white;
+  color: #fff;
   font-weight: bold;
 }
 
@@ -125,95 +128,92 @@ body {
 }
 
 .other-month {
-  color: #aaa;
-  background-color: #f5f5f5;
+  color: #bbb;
+  background-color: #f3f3f3;
 }
 
 .day-number {
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 0.25rem;
+  font-size: 1.1rem;
 }
 
 .reminders-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: var(--text);
   line-height: 1.2;
-  max-height: 3rem;
+  max-height: 3.5rem;
   overflow-y: auto;
   width: 100%;
   word-break: break-word;
 }
 
 .reminders-list li {
-  margin-bottom: 2px;
   text-align: center;
 }
 
+/* Reminder Indicator */
 .has-reminder::after {
   content: "";
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   background-color: var(--dot);
   border-radius: 50%;
   position: absolute;
-  bottom: 6px;
-  right: 6px;
+  bottom: 8px;
+  right: 10px;
 }
 
 /* Popup */
 .reminder-popup {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 100;
 }
 
 .popup-content {
   background: var(--popup-bg);
   color: var(--popup-text);
-  padding: 1.5rem;
-  border-radius: 12px;
+  padding: 2rem;
+  border-radius: 14px;
   width: 90%;
-  max-width: 400px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  max-width: 450px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .popup-content h4 {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
+  margin: 0 0 1.25rem;
+  font-size: 1.3rem;
 }
 
 .popup-content input {
   width: 100%;
-  padding: 0.6rem;
-  margin-bottom: 1rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  padding: 0.75rem;
   font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }
 
 .popup-actions {
   display: flex;
   justify-content: flex-end;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
 .popup-actions button {
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-size: 0.95rem;
   cursor: pointer;
-  font-size: 0.9rem;
 }
 
 .popup-actions button:first-child {
@@ -222,10 +222,10 @@ body {
 }
 
 .popup-actions button:last-child {
-  background-color: #eee;
+  background-color: #e0e0e0;
 }
 
-/* Floating Add Button */
+/* Add Button */
 .add-reminder-button {
   position: fixed;
   bottom: 2rem;
@@ -234,23 +234,23 @@ body {
   color: white;
   border: none;
   border-radius: 50%;
-  font-size: 1.75rem;
-  width: 56px;
-  height: 56px;
+  font-size: 2rem;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   z-index: 20;
-  transition: background 0.3s;
+  transition: background 0.3s ease;
 }
 
 .add-reminder-button:hover {
   background-color: #005ecf;
 }
 
-/* Theme Toggle Button */
+/* Theme Toggle */
 .theme-toggle {
   position: absolute;
   top: 1.5rem;
@@ -258,31 +258,30 @@ body {
   font-size: 1rem;
   background: none;
   border: 1px solid #ccc;
-  padding: 0.4rem 0.8rem;
+  padding: 0.5rem 1rem;
   border-radius: 8px;
   cursor: pointer;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
   .calendar {
-    padding: 1rem;
+    padding: 1.5rem;
   }
 
   .calendar-header h2 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .calendar-cell {
-    min-height: 80px;
-    padding: 0.3rem;
-  }
-
-  .reminders-list {
-    font-size: 0.65rem;
+    min-height: 90px;
   }
 
   .popup-content {
-    padding: 1rem;
+    padding: 1.25rem;
+  }
+
+  .popup-actions button {
+    font-size: 0.85rem;
   }
 }
