@@ -161,13 +161,23 @@ body {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: dodgerblue;
+  width: 60px;
+  height: 60px;
+  background-color: dodgerblue;
   color: white;
   font-size: 2rem;
+  font-weight: bold;
   border: none;
   border-radius: 50%;
-  width: 3.5rem;
-  height: 3.5rem;
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: background-color 0.2s ease;
+}
+
+.add-reminder-button:hover {
+  background-color: #1c75d8;
 }
