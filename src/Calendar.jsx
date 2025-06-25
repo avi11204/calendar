@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import dayjs from "dayjs";
-import "./Calendar.css";
+import "./Calender.css";
 
 const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
